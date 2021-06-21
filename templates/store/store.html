@@ -1,38 +1,56 @@
-{% extends '../base.html' %}
+{% extends "../base.html" %}
 
 {% load static %}
+
 {% block content %}
-
-
 
 <div class="container">
 
-  <div style="float: right;">
-    {% include 'car/widget.html' %}
+  <div style="float:right;">
+  
+     
+
+    {% include "car/widget.html" %}
+  
   </div>
 
-    <div class="row">
-        
-        {% for product in products %}
-        <div class="col-md-3">
-            <div class="card" style="width: 100%; margin: 10px 10px" >
-                <img src="{{product.image.url}}" class="card-img-top" >
-                <div class="card-body" style="text-align: center;">
-                    <h6 class="card-title">{{product.name}}</h6>
-                    <p class="card-text">{{product.price}}&nbsp;$</p>
-                </div>
 
-                <div class='card=footer text-center'>
-                  <a href="{% url 'car:add' product.id %}" class='btn btn-success'>
-                    add the car
-                  </a>
-                </div>
+  <div class="row">
 
-            </div>
+{% for product in products %}
+
+    <div class="col-md-3">
+
+    <div class="card" style="width: 100%; margin: 5px 5px;">
+
+        <img src="{{product.image.url}}" class="card-img-top">
+
+        <div class="card-body" style="text-align: center;">
+
+            <h6 class="card-title">{{product.name}}</h6>
+
+            <p class="card-text">{{product.price}}&nbsp;$</p>
+
+
         </div> 
-      {% endfor %}
-    </div>
-  </div>
         
+        <div class="card-footer text-center">
+
+            <a href="{% url 'car:add' product.id %}" class="btn btn-success">add car</a>
+
+        </div>
+
+    </div><!--card que se cierra-->
+    
+  </div>
+
+
+
+{% endfor %}
+  </div>
+ 
+  
+</div>
+
 {% endblock %}
     

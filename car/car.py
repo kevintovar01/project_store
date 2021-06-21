@@ -23,9 +23,10 @@ class Car:
             for key, value in self.car.items():
                 if key == str(product.id):
                     value['amount'] += 1
+                    value["price"]=float(value["price"])+product.price
                     break
         self.save_car()
-    
+
 
     def save_car(self):
         self.session['car']=self.car
@@ -43,8 +44,10 @@ class Car:
         for key, value in self.car.items():
             if key == str(product.id):
                 value['amount'] -= 1
+                value["price"]=float(value["price"])-product.price
                 if value['amount'] <1:
                     self.delete(product)
+
                 break
         self.save_car()
 
