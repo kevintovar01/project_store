@@ -1,0 +1,4 @@
+project_web/settings.py
+db.sqlite3
+
+.env

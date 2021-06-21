@@ -1,0 +1,23 @@
+{% extends '../base.html' %}
+
+
+{% block content %}
+<div class="formcontent">
+
+    
+    {% if 'valid' in request.GET %}
+        <p>the information has been sent</p>
+    {% elif 'notvalid' in request.GET %}
+        <P>The information has not been sent</P>
+        
+    {% endif %}
+        
+    <form action="" method="POST" style="text-align: center;">
+        {% csrf_token %}
+        <table style="margin: 20px auto;">
+            {{my_form.as_table}}
+        </table>
+        <input type="submit" value="Send" style="width: 150px;">
+    </form>
+</div>
+{% endblock %}
