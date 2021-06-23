@@ -1,7 +1,11 @@
 from django.shortcuts import render, redirect
 from .forms import ContactForm
 from django.core.mail import EmailMessage
+from django.contrib.auth.decorators import login_required
 
+
+
+@login_required
 def contact(request):
     form_contact = ContactForm()
 

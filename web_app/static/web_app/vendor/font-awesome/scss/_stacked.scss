@@ -4,6 +4,12 @@
 .#{$fa-css-prefix}-stack {
   position: relative;
   display: inline-block;
+  width: 2em;// Stacked Icons
+// -------------------------
+
+.#{$fa-css-prefix}-stack {
+  position: relative;
+  display: inline-block;
   width: 2em;
   height: 2em;
   line-height: 2em;
