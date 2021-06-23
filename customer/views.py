@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import authenticate, login, logout
+from .forms import SignupForm
 
 
 
@@ -25,3 +26,14 @@ def login_view(request):
 def logout_view(request):
     logout(request)
     return redirect('/customer/login/')
+
+
+def signup_view(request):
+    if request.method == 'POST':
+        form = SignupForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('/customer/login/')
+    else:
+        form = SignupForm
+    return render(request, 'login/signup.html', {'form':form})
